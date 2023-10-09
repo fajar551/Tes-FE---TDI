@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'e-commerce';
+
+
+  //Loader variable default true before page load
+  loader = true;
+
+  ngOnInit(): void {
+
+    //Loader variable set false after page load
+   setTimeout(()=>{
+     this.loader = false;
+ }, 1000);
+ }
 }

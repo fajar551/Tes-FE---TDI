@@ -1,0 +1,129 @@
+<ng-container *ngIf="showproduct.length !=0">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-sm-6">
+        <ul class="breadcrumb" style="margin-left: -32px; max-width: 1174px;">
+          <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+          <li class="active"> Daftar Transaksi </li>
+        </ul>
+        <h3 style="margin-left: -32px; max-width: 1174px;"> Daftar Transaksi [ <small>{{cartitems}} Produk </small>]
+        </h3>
+        <hr class="soft" />
+
+        <!-- Isi tabel produk di sini -->
+        <table class="table table-bordered text-center align-item-center"
+          style="max-width: 1174px; margin-left: -32px; text-align: center !important;">
+          <thead>
+            <tr style="text-align: center !important;">
+              <th>Gambar</th>
+              <th>Brand</th>
+              <th>Kategori</th>
+              <th>Harga</th>
+              <th>Aksi</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of showproduct">
+              <td> <img width=" 60" src="{{item.images[0]}}" alt="" />
+              </td>
+              <td>{{item.title}}</td>
+              <td> {{item.category}} </td>
+              <td>Rp. {{item.price}}</td>
+              <td>
+                <div class="input-append">
+                  <button (click)="hapusDiKeranjang(item)" class="btn btn-danger"><i class="icon-remove icon-white"></i>
+                    Hapus</button>
+                </div>
+              </td>
+              <td>Rp. {{item.price}}</td>
+            </tr>
+
+            <tr>
+              <td colspan="5" style="text-align:right">Ongkos Kirim: </td>
+              <td> Rp. {{ongkir| number:
+                '1.0-0'}}</td>
+            </tr>
+
+            <tr>
+              <td colspan="5" style="text-align:right"><strong>TOTAL (Rp. {{totalHarga}} + Rp. {{ongkir| number:
+                  '1.0-0'}} (Ongkos Kirim)) =</strong></td>
+              <td class="label label-important" style="display:block; background-color: #51a351;"> <strong>
+                  {{this.finalHarga| number:
+                  '1.0-0'}} </strong></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div class="btn-group mt-2" style="margin-left: -32px; max-width: 1174px;">
+        <button (click)="this.formAlamat=true" class="btn btn-success" style="color: white;">Bayar</button>
+        <button (click)="kosong()" class="btn btn-secondary" style="margin-left: 7px;">Kosongkan</button>
+      </div>
+
+
+
+      <div class="col-sm-6" style="margin-left: -32px; max-width: 1174px; margin-top: 14px;">
+        <table class="table table-bordered" *ngIf="formAlamat">
+          <tr>
+            <th>Lengkapi Data Anda </th>
+          </tr>
+          <tr>
+            <td style="text-align: center; align-items: center;">
+              <form [formGroup]="myform">
+                <div class="form-group">
+                  <label for="email" style="margin-left: -400px !important;">Email address</label>
+                  <input style="width: 500px;" type="email" class="form-control" formControlName="email" id="email"
+                    aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="name" style="margin-left: -450px !important;">Name</label>
+                  <input style="width: 500px;" type="text" class="form-control" formControlName="name" id="name"
+                    placeholder="Name">
+                </div>
+                <div class="form-group">
+                  <label for="mobile_number" style="margin-left: -390px !important;">Mobile Number</label>
+                  <input style="width: 500px;" type="number" class="form-control" formControlName="mobile"
+                    id="mobile_number" placeholder="Mobile Number">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1" style="margin-left: -440px !important;">Address</label>
+                  <textarea style="width: 500px;" class="form-control" id="exampleFormControlTextarea1"
+                    formControlName="address" placeholder="Address" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="bayar" style="margin-left: -370px !important;">Metode Pembayaran</label>
+                  <select style="width: 500px;" class="form-control" formControlName="paymentMethod" id="bayar">
+                    <option value="cash">Bayar di Tempat</option>
+                    <option value="online">Pembayaran Online</option>
+                  </select>
+                </div>
+
+                <button routerLink="/halaman-order" type="submit" (click)="onsubmit()" [disabled]="this.myform.invalid"
+                  class="btn btn-success mt-2">Order</button>&nbsp;
+                <button type="submit" (click)="batal()" class="btn btn-dark mt-2">Batal</button>
+              </form>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+
+
+
+<ng-container *ngIf="showproduct.length ==0">
+  <div class="card">
+    <div class="center">
+      <img style="width: 250px;"
+        src="https://media.istockphoto.com/id/1266144552/vector/emoticon-with-sorry-sign.jpg?s=612x612&w=0&k=20&c=SxPesZy6zIYB2lbY3l8cQgpXaQdeBN_GcHrsOlsc4J8=">
+      <h4 class="mt-2">Keranjangmu kosong</h4>
+      <h6 class="mt-2">Tambahkan Produk </h6>
+      <button routerLink="/" class="btn btn-dark mt-2">Belanja Sekarang </button>
+    </div>
+  </div>
+</ng-container>

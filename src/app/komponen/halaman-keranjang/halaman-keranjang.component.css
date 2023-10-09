@@ -1,0 +1,30 @@
+.card {
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  position: absolute;
+  padding: 100px;
+}
+
+/* Jika ingin mengubah warna teks ketika tombol aktif (klik) */
+.btn.btn-danger:active {
+  color: blue; /* Ganti dengan warna yang Anda inginkan */
+}
+
+/* Untuk memberikan garis merah pada tombol */
+.btn.btn-success {
+  border-color: rgb(13, 221, 69); /* Mengatur warna border menjadi merah */
+  border-width: 1px; /* Mengatur lebar border */
+  color: white;
+  cursor: pointer; /* Menunjukkan kursor ketika di atas tombol */
+}
+
+/* Jika ingin mengubah warna teks ketika tombol aktif (klik) */
+.btn.btn-success:active {
+  color: rgb(13, 221, 69); /* Ganti dengan warna yang Anda inginkan */
+}
+
+.container-fluid {
+  margin-left: 190px;
+}

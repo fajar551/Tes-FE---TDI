@@ -1,0 +1,114 @@
+.card-img {
+  width: 150px;
+  height: 145px;
+  margin: 0 auto; /* Mengatur posisi gambar ke tengah horizontal dan vertikal */
+  display: block; /* Menghilangkan space di bawah gambar */
+}
+
+.visually-hidden {
+  display: block;
+  color: #51a531;
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-size: 26px;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  /* background: rgba(0, 0, 0, 0.5); */
+
+  text-align: center;
+  padding-top: 20%;
+  z-index: 1000;
+  animation: moveLetters 2s infinite;
+  font-weight: 700;
+}
+
+@keyframes moveLetters {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  25% {
+    transform: translateY(-10px);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translateY(-20px);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translateY(-30px);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(-40px);
+    opacity: 1;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  line-height: 1.5385;
+  color: #333;
+  text-align: left;
+}
+
+.fixed-footer {
+  width: 100%;
+  position: fixed;
+  background: #333;
+  padding: 5px;
+  color: #fff;
+}
+
+.card-img-actions {
+  position: relative;
+  text-align: center; /*Mengatur posisi gambar ke tengah horizontal*/
+}
+
+a {
+  text-decoration: none;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center; /* Mengatur gambar menjadi berada di tengah secara horizontal */
+  align-items: center; /* Mengatur gambar menjadi berada di tengah secara vertikal */
+  max-height: 100px; /* Sesuaikan dengan tinggi gambar Anda */
+  margin-bottom: 10px;
+}
+
+h6 {
+  margin-top: -10px;
+  margin-bottom: -7px;
+  text-align: center;
+}
+
+h5 {
+  margin-top: 5px;
+  margin-bottom: -10px;
+}
+
+h3 {
+  text-align: center;
+  font-weight: bold;
+  font-weight: 700;
+}
+
+/* html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+#content {
+  flex: 1;
+}
+
+#footerSection {
+  text-align: center;
+  padding: 20px;
+} */

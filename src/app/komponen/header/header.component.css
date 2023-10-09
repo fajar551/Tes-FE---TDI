@@ -1,0 +1,35 @@
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown > .dropdown-toggle:active {
+  pointer-events: none;
+}
+
+.btn.btn-success {
+  /* background-color: rgb(19, 200, 52); */
+  font-weight: 600;
+}
+
+.dropdown-menu {
+  right: 0;
+  left: auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.item-details-container {
+  display: flex;
+  align-items: center;
+}
+
+.item-price {
+  margin-left: 120px;
+}
+
+.item-delete {
+  margin-left: auto;
+}

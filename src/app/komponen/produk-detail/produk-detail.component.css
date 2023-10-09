@@ -1,0 +1,26 @@
+/* Gaya awal untuk tombol */
+.btn.btn-success {
+  background-color: rgb(19, 200, 52); /* Atur warna latar belakang di sini */
+  font-weight: 600;
+}
+
+.soft {
+  margin: 8px;
+}
+
+.carousel-inner .image-wrapper {
+  display: inline-block;
+  width: 29%; /* Atur lebar gambar sesuai kebutuhan Anda */
+  margin-right: 11px; /* Atur jarak antara gambar-gambar */
+  vertical-align: top; /* Mengatur posisi vertikal gambar */
+}
+
+h3 {
+  font-family: "Open Sauce One", sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+#gallery {
+  max-height: 120px;
+}

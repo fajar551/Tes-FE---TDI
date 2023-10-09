@@ -1,0 +1,90 @@
+<div id="mainBody" style="margin-left: 150px;">
+  <div class="container">
+    <div class="row">
+
+      <!-- Sidebar ================================================== -->
+      <div id="sidebar" class="span3">
+        <div class="well well-small"><a id="myCart"><img src="../../../assets/themes/images/ico-cart.png" alt="cart">
+            {{cartitems}} Produk di Keranjang
+          </a>
+        </div>
+        <ul id="sideManu" class="nav nav-tabs nav-stacked">
+          <li class="subMenu open"><a> Etalase Toko [30]</a>
+            <ul>
+              <li><a class="active"><i class="fas fa-cookie"></i> Handphones
+                </a></li>
+              <li><a><i class="fas fa-cookie"></i> Computers, Tablets &
+                  laptop </a></li>
+              <li><a><i class="fas fa-cookie"></i> Oils</a></li>
+              <li><a><i class="fas fa-cookie"></i> Fragrances </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <br>
+      </div>
+      <!-- Sidebar end=============================================== -->
+
+      <div class="span9">
+        <ul class="breadcrumb">
+          <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+          <li><a href="index.html">Detail Produk</a> <span class="divider">/</span></li>
+          <li class="active">{{productdata?.title}}</li>
+        </ul>
+        <div class="row">
+          <div id="gallery" class="span3">
+            <a href="{{productdata?.images[0]}}" title="{{productdata?.title| slice:0:18}}">
+              <img src="{{productdata?.images[0]}}" style="width:100%" alt="{{productdata?.title| slice:0:18}}" />
+            </a>
+            <div id="differentview" class="moreOptopm carousel slide">
+              <div class="carousel-inner mt-4">
+                <div class="item active">
+                  <div class="image-wrapper">
+                    <a href="{{productdata?.images[0]}}"><img src="{{productdata?.images[0]}}" alt="" /></a>
+                  </div>
+                  <div class="image-wrapper">
+                    <a href="{{productdata?.images[1]}}"><img src="{{productdata?.images[1]}}" alt="" /></a>
+                  </div>
+                  <div class="image-wrapper">
+                    <a href="{{productdata?.images[2]}}"><img src="{{productdata?.images[2]}}" alt="" /></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="span6">
+            <h3>{{productdata?.title| slice:0:18}} </h3>
+            <h5>- {{productdata?.category}} -</h5>
+            <hr class="soft" />
+            <form class="form-horizontal qtyFrm">
+              <div class="control-group">
+                <label class="control-label"><span>Rp. {{productdata?.price}}</span></label>
+              </div>
+            </form>
+
+            <hr class="soft" />
+            <h4>{{productdata?.stock}} Stok Tersedia</h4>
+
+            <hr class="soft clr" />
+            <p>
+              <strong>Deskripsi:</strong>
+              {{productdata?.description}}
+            </p>
+            <br class="clr" />
+            <a href="#" name="detail"></a>
+            <hr class="soft" />
+            <button type="submit" (click)="tambahKeranjang(productdata)" *ngIf="showadd" class="btn btn-lg btn-success">
+              Tambah Keranjang
+              <i class=" icon-shopping-cart"></i></button>
+            <button type="submit" (click)="hapusKeranjang(productdata)" *ngIf="showremove" class="btn btn-dark"
+              routerLink="/halaman-keranjang"> Beli Produk
+              <i class=" icon-shopping-cart"></i></button>
+            <button routerLink="/" type="submit" class="btn btn-lg btn-dark ml-2"> Kembali
+              <i class="fa fa-arrow-left"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

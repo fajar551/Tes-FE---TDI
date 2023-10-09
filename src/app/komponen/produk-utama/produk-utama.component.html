@@ -1,0 +1,70 @@
+<div class="spinner-grow text-primary text-align-center" style="width: 3rem; height: 3rem;" role="status"
+  *ngIf="loader">
+  <span class="visually-hidden text-align-center">Loading...</span>
+</div>
+
+<div id="mainBody" style="margin-left: 150px;" *ngIf="!loader">
+  <div class="container">
+    <div class="row">
+
+      <!-- Sidebar ================================================== -->
+      <div id="sidebar" class="span3">
+        <div class="well well-small"><a id="myCart"><img src="../../../assets/themes/images/ico-cart.png" alt="cart">
+            {{cartitems}} Produk di Keranjang
+          </a>
+        </div>
+        <ul id="sideManu" class="nav nav-tabs nav-stacked">
+          <li class="subMenu open"><a> Etalase Toko [30]</a>
+            <ul>
+              <li><a class="active"><i class="fas fa-cookie"></i> Handphones
+                </a></li>
+              <li><a><i class="fas fa-cookie"></i> Computers, Tablets &
+                  laptop </a></li>
+              <li><a><i class="fas fa-cookie"></i> Oils</a></li>
+              <li><a><i class="fas fa-cookie"></i> Fragrances </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <br />
+      </div>
+      <!-- Sidebar end=============================================== -->
+
+      <div class="span9">
+        <h4 style="font-weight: 600; font-size: 22px;">Semua Produk</h4>
+        <ul class="thumbnails">
+          <li class="span3" *ngFor="let item of data?.products">
+            <br><br>
+
+            <div class="thumbnail">
+              <a routerLink="/produk-detail/{{item.id}}">
+                <div class="image-container">
+                  <img style="max-height: 120px; margin-top: 20px;" routerLink="/produk-detail/{{item.id}}"
+                    src="{{item.thumbnail}}" alt="" />
+                </div>
+              </a>
+
+              <div class="caption">
+                <h5 routerLink="/produk-detail/{{item.id}}">{{item.title| slice:0:18}}</h5>
+                <h3 routerLink="/produk-detail/{{item.id}}">Rp. {{ item.price }} <a
+                    routerLink="/produk-detail/{{item.id}}"
+                    style="color: #f94d63; background-color: #ffdbe2; width: auto; border-radius: 6px;">{{
+                    item.discountPercentage }}%</a>
+                </h3>
+                <h6>Rating: {{ item.rating }}</h6>
+
+                <h4 style="text-align:center">
+                  <a class="btn" routerLink="/produk-detail/{{item.id}}" (click)="tambahKeranjang(item)"><i
+                      class="icon-zoom-in"></i>&nbsp;Detail</a>
+                  <a class="btn ml-2" (click)="tambahKeranjang(item)">Tambah<i class="icon-shopping-cart"></i></a>
+                </h4>
+              </div>
+            </div>
+
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>

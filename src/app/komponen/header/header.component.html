@@ -1,0 +1,55 @@
+<div id="header">
+  <div class="container">
+
+    <div id="logoArea" class="navbar" style="margin-top: 3px;">
+      <a id="smallScreen" data-target="#topMenu" data-toggle="collapse" class="btn btn-navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <div class="navbar-inner ">
+        <a class="brand" routerLink="/"><img style="margin-left: 120px; " src="../../../assets/themes/images/logo-.png"
+            alt="Bootsshop" /></a>
+        <ul id="topMenu" class="nav dropdown" style="left: 777px;">
+          <li class="dropdown"><a routerLink="halaman-keranjang" style="color: black; width: 500;">Keranjang<span
+                style="margin-left: 6px;" class="btn btn-success"><i routerLink="halaman-keranjang"
+                  class="icon-shopping-cart icon-white"></i>
+                {{cartitems}}
+                Produk </span></a>
+            <ul class="dropdown-menu" *ngIf="this.showproduct.length >=1"
+              style="background:white; color:black; border: 1px solid black;">
+              <div style="width: 280px;" class="CartContainer">
+                <div class="row">
+                  <div class="col-12">
+                    <strong class="text-light ml-1" style="margin-left: 40px !important;">Produk di Keranjangmu
+                    </strong>
+                  </div>
+
+                  <div class="row mt-3 mb-3" *ngFor="let item of showproduct">
+                    <div class="col-7">
+                      <div class="item-details-container">
+                        <div>
+                          <img style="width: 100px; margin-left: 65px;" src="{{item.thumbnail}}">
+                        </div>
+                        <div class="item-price">
+                          <strong> Harga :</strong>
+                          <h4 class="text-light">Rp. {{item.price}}</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="text-center">
+                    <button (click)="emptycart()" *ngIf="this.showproduct.length >=1"
+                      class="btn btn-sm btn-warning mt-2" style="margin-left: 30px;">Hapus Semua</button>
+                  </div>
+                </div>
+              </div>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

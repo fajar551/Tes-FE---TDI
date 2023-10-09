@@ -1,0 +1,16 @@
+.card {
+  margin-top: 300px !important;
+  background: white;
+  padding: 80px;
+  border-radius: 4px;
+  box-shadow: 0 2px 3px #c8d0d8;
+  display: block; /* Menggunakan display: block agar lebar kartu mengikuti parentnya */
+  margin: 0 auto; /* Menengahkan kartu secara horizontal */
+  width: 400px; /* Atur lebar kartu sesuai kebutuhan Anda */
+  text-align: center; /* Menengahkan teks dalam kartu */
+  position: relative; /* Diperlukan jika Anda ingin mengontrol posisi vertikal */
+  /* top: 50%; Geser ke bawah sejauh setengah dari tinggi kartu */
+  transform: translateY(
+    -50%
+  ); /* Geser kartu ke atas sejauh setengah dari tinggi kartu */
+}
